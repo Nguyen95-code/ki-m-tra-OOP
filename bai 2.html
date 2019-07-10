@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let Rat = function (name, weight, speed, status) {
+        this.name = name;
+        this.weight = weight;
+        this.speed = speed;
+        this.status = status;
+        this.getName = function () {
+            return this.name;
+        };
+        this.setName = function (name) {
+            this.name = name;
+        };
+        this.getWeight = function () {
+            return this.weight;
+        };
+        this.setWeight = function (weight) {
+            this.weight = weight;
+        };
+        this.getSpeed = function () {
+            return this.speed;
+        };
+        this.setSpeed = function (speed) {
+            this.speed = speed;
+        };
+        this.getStatus = function () {
+            return this.status;
+        };
+        this.setStatus = function (status) {
+            this.status = status;
+        };
+        this.behavior = function (str) {
+            alert(this.name + " : " + str);
+        };
+    };
+    let Cat = function (name, weight, maxSpeed) {
+        this.name = name;
+        this.weight = weight;
+        this.maxSpeed = maxSpeed;
+        this.getName = function () {
+            return this.name;
+        };
+        this.setName = function (name) {
+            this.name = name;
+        };
+        this.getWeight = function () {
+            return this.weight;
+        };
+        this.setWeight = function (weight) {
+            this.weight = weight;
+        };
+        this.getMaxSpeed = function () {
+            return this.maxSpeed;
+        };
+        this.setMaxSpeed = function (maxSpeed) {
+            this.maxSpeed = maxSpeed;
+        };
+        this.behavior = function (str) {
+            alert(this.name + " : " + str);
+        };
+        this.catchRat = function (rat) {
+            if (rat.speed < maxSpeed) {
+                return true;
+            } else return false;
+        };
+        this.eatRat = function (rat) {
+            if (rat.status == true) {
+                this.weight += rat.weight;
+            }
+        };
+    };
+    let rat1 = new Rat("Cat", 100, 100, true);
+    let cat1 = new Cat("Dog", 500, 200);
+    if (cat1.catchRat(rat1)) {
+        document.write(cat1.getName() + "   bắt được    " + rat1.getName());
+        cat1.eatRat(rat1);
+    } else {
+        document.write(cat1.getName() + "không bắt được" + rat1.getName());
+    }
+    document.write("<br>"+"Dog tăng cân lên " + cat1.getWeight());
+</script>
+</body>
+</html>
